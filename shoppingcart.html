@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Shopping Cart">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript,Acro,Minutiae,Design,2020,Calisthenics,Skateteam,Acro,Minutiae,Gym,Rails,Hype,Fit,Fashion">
+  <meta name="author" content="Kevin Mezu">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel='icon' href="favicon.ico">
+<title> Shopping Cart </title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="finalstyle.css">
+</head>
+<body>
+  <h1><a href="homepage.html">UPPER ECHELON</a></h1>
+  <ul class = "nav">
+    <li><a href="Shop.html">Shop</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="archive.html">Archive</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="calender.html">Events</a></li>
+  </ul>
+  <div class="shopping-cart">
+    <!-- Title -->
+    <div class="title">
+      Shopping Bag
+    </div>
+
+    <!-- Product #1 -->
+    <div class="item">
+      <div class="buttons">
+        <span class="delete-btn"></span>
+        <span class="like-btn"></span>
+      </div>
+
+      <div class="image">
+        <img src="acrominutiaeairpods.png" alt="" />
+      </div>
+
+      <div class="description">
+        <span>AcroPods</span>
+        <span>Wireless Buds</span>
+        <span>Summit White</span>
+      </div>
+
+      <div class="quantity">
+        <button class="minus-btn" type="button" name="button">
+          <img src="minussign.png" alt="" />
+        </button>
+        <input type="text" name="name" value="1">
+        <button class="plus-btn" type="button" name="button">
+          <img src="plussign.png" alt="" />
+        </button>
+      </div>
+
+      <div class="total-price">$48</div>
+    </div>
+
+    <!-- Product #2 -->
+    <div class="item">
+      <div class="buttons">
+        <span class="delete-btn"></span>
+        <span class="like-btn"></span>
+      </div>
+
+      <div class="image">
+        <img src="greencharger.png" alt=""/>
+      </div>
+
+      <div class="description">
+        <span>Acro Cable</span>
+        <span>Lightning Cable</span>
+        <span>Volt Green</span>
+      </div>
+
+      <div class="quantity">
+        <button class="minus-btn" type="button" name="button">
+          <img src="minussign.png" alt="" />
+        </button>
+        <input type="text" name="name" value="1">
+        <button class="plus-btn" type="button" name="button">
+          <img src="plussign.png" alt="" />
+        </button>
+      </div>
+
+      <div class="total-price">$20</div>
+    </div>
+
+  </div>
+<script>
+  $('.like-btn').on('click', function() {
+     $(this).toggleClass('is-active');
+  });
+  $('.minus-btn').on('click', function(e) {
+    e.preventDefault();
+    var $this = $(this);
+    var $input = $this.closest('div').find('input');
+    var value = parseInt($input.val());
+
+    if (value &amp;gt; 1) {
+        value = value - 1;
+    } else {
+        value = 0;
+    }
+
+  $input.val(value);
+
+});
+</script>
+<script>
+$('.plus-btn').on('click', function(e) {
+    e.preventDefault();
+    var $this = $(this);
+    var $input = $this.closest('div').find('input');
+    var value = parseInt($input.val());
+
+    if (value &amp;lt; 100) {
+        value = value + 1;
+    } else {
+        value =100;
+    }
+
+    $input.val(value);
+});
+</script>
+<footer> Copyright &#169; 2020 Acro Minutiae <a href="privacypolicy.html">Privacy Policy</a></footer>
+</body>
+</html>
