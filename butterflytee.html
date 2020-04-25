@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="AcroPods Accessory">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript,Acro,Minutiae,Design,2020,Calisthenics,Skateteam,Acro,Minutiae,Gym,Rails,Hype,Fit,Fashion">
+  <meta name="author" content="Kevin Mezu">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>butterflytee | UE</title>
+<link rel='icon' href="favicon.ico">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="finalstyle.css">
+</head>
+<body onload="checkMyBag.call()">
+  <h3 id="pc-laptop-img" class="text-center p-4"><a href="shop.html">UPPER ECHELON</a></h3>
+  <article id="product-card" class="d-flex justify-content-center align-items-stretch text-monospace">
+    <div id="cartDiv" class="ui-cart align-self-center" style="display:none">
+      <a id="mobile-img" class="navmedium" href="shop.html">Upper ECHELON</a>
+      <a id="pc-laptop-img" class="first-child" href="#"> Item in Cart </a>
+      <a href="#">Subtotal<span id="cart_total"></span></a>
+      <div id="mobile-img" class="navmedium right" style="background-color:none;">
+        <a id="num_items" href="#"></a>
+        <a class="last-child" href="#">Checkout</a>
+      </div>
+    </div>
+    <figure class="figure" id="pc-laptop-img">
+      <img src="ue_logo_invert.png" class="" alt="image picture" style="width:300px;">
+      <figcaption class="figure-caption">A caption for the above image.</figcaption>
+    </figure>
+  <div id="mobile-card" class="card align-self-center">
+    <img class="card-img-top" src="ue_logo_invert.png" alt="Card image cap" id="mobile-img">
+    <div class="card-body">
+      <h5 class="card-title">Butter Fly S/S Tee</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Cras justo odio</li>
+      <li class="list-group-item">Dapibus ac facilisis in</li>
+      <li class="list-group-item">Vestibulum at eros</li>
+    </ul>
+    <div id="not-in-cart" class="card-body">
+      <a href="#" onclick="item_Selection.addAnItem()" class="btn btn-danger">Add to &#128722;</a>
+      <a href="shop.html" class="btn btn-outline-secondary p-1">Keep Shopping</a>
+    </div>
+    <div id="in-cart-btn" class="card-body" style="display:none;">
+      <a href="#" class="btn btn-dark" onclick="item_Selection.removeAnItem()">X Remove</a>
+      <a href="checkout.html" class="btn btn-outline-success" style="">Checkout</a>
+    </div>
+  </div>
+</article>
+<footer> Copyright &#169; 2020 Acro Minutiae <a href="privacypolicy.html">Privacy Policy</a></footer>
+<script>
+
+  let snakeGlareTee = ['Snakeglare', 'Tee1', '40'];
+  let snakeStoneTee = ['Snakestone', 'Tee2', '80'];
+  let butterFlyTee  = ['ButterFly', 'Tee3', '60'];
+  let curItem       = butterFlyTee;
+  function checkMyBag() {
+    if (sessionStorage.length > 0) {
+      var x = document.getElementById("cartDiv");
+      x.style.display = "block";
+    } else {
+      var x = document.getElementById("cartDiv");
+      x.style.display = "none";
+    }
+    if ((sessionStorage.getItem(curItem[0]) === curItem[2])) {
+      var y = document.getElementById("in-cart-btn");
+      var z = document.getElementById("not-in-cart");
+      if (y.style.display === "none" && z.style.display === "block") {
+          y.style.display = "block";
+          z.style.display = "none" ;
+          showMeCart.call();
+        } else {
+          x.style.display = "block";
+          y.style.display = "block";
+          z.style.display = "none" ;
+          showMeCart.call();
+        }
+    } else {
+      var y = document.getElementById("in-cart-btn");
+      var z = document.getElementById("not-in-cart");
+      if (y.style.display === "block" && z.style.display === "none") {
+          y.style.display = "none";
+          z.style.display = "block" ;
+          showMeCart.call();
+        } else {
+          y.style.display = "none";
+          z.style.display = "block" ;
+          showMeCart.call();
+        }
+    }
+  }
+  function printCartItems(i) {
+      let str_Temp = sessionStorage.getItem(sessionStorage.key(i));
+      let check_Out_Total = parseInt(str_Temp,10);
+      console.log(check_Out_Total);
+      return check_Out_Total;
+
+  }
+
+  function showMeCart() {
+      total_Before_Tax = 0;
+      let temp_Num = 0
+      for (let i = 0; i < sessionStorage.length; i++) {
+          console.log(sessionStorage.key(i));
+          let temp_Num = printCartItems(i);
+          total_Before_Tax = total_Before_Tax + temp_Num;}
+
+      if (sessionStorage.length != 0){
+          document.getElementById("cart_total").innerHTML = ' $' + total_Before_Tax;
+          document.getElementById("num_items").innerHTML  = sessionStorage.length;
+        }
+
+      else if (total_Before_Tax == 0 && sessionStorage.length == 0) {
+          document.getElementById("cart_total").innerHTML = ' ';
+          document.getElementById("num_items").innerHTML  = '';
+
+      }
+  }
+  function Add_Or_Remove(item, type) {
+      this.item = item;
+
+      this.type = type;
+
+      this.addAnItem = function() {
+          if (sessionStorage.getItem(item) != type ) {
+              sessionStorage.setItem(item,type);
+              checkMyBag.call();
+          } else {
+              console.log("There can only be one!");
+              showMeCart.call();}
+      }
+      this.removeAnItem = function() {
+          if (sessionStorage.getItem(item) == type) {
+              sessionStorage.removeItem(item);
+              checkMyBag.call();
+          }
+              else {
+              console.log("It's okay don't be shy, Put some MORE!");
+              showMeCart.call(); }
+
+          }
+      this.clearTheCart = function() {
+          if (sessionStorage.length > 0 ) {
+              sessionStorage.clear();
+              showMeCart.call();
+          } else {
+              console.log("Dude you didn't even buy anything??!!!");
+              showMeCart.call();
+          }
+      }
+  }
+
+    const item_Selection = new Add_Or_Remove(curItem[0],curItem[2]);
+</script>
+</body>
+</html>
