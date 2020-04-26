@@ -18,35 +18,38 @@
       <a id="mobile-img" class="navmedium" href="shop.html">Upper ECHELON</a>
       <a id="pc-laptop-img" class="first-child" href="#"> Item in Cart </a>
       <a href="#">Subtotal<span id="cart_total"></span></a>
+      <a id="pc-laptop-img" class="btn btn-success btn-block" href="checkout.html">Checkout</a>
       <div id="mobile-img" class="navmedium right" style="background-color:none;">
         <a id="num_items" href="#"></a>
-        <a class="last-child" href="#">Checkout</a>
+        <a class="last-child" href="checkout.html">Checkout</a>
       </div>
     </div>
     <figure class="figure" id="pc-laptop-img">
       <img src="ue_logo_invert.png" class="" alt="image picture" style="width:300px;">
       <figcaption class="figure-caption">A caption for the above image.</figcaption>
     </figure>
-  <div id="mobile-card" class="card align-self-center">
-    <img class="card-img-top" src="ue_logo_invert.png" alt="Card image cap" id="mobile-img">
-    <div class="card-body">
-      <h5 class="card-title">Butter Fly S/S Tee</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <div id="mobile-card" class="card align-self-center">
+      <img class="card-img-top" src="ue_logo_invert.png" alt="Card image cap" id="mobile-img">
+      <div class="card-body">
+        <h5 class="card-title">ButterFly Tee</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Cras justo odio</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        </ul>
+        <ul id="in-cart-btn" class="list-group list-group-flush" style="display:none;">
+          <li class="list-group-item"><a class="btn btn-outline-warning" href="#">item in cart</a></li>
+          <li class="list-group-item">
+            <a href="#" class="btn btn-dark" onclick="item_Selection.removeAnItem()">X Remove</a>
+            <a href="shop.html" class="btn btn-outline-success" style="">Keep Shopping</a>
+          </li>
+          </ul>
+      <div id="not-in-cart" class="card-body">
+        <a href="#" onclick="item_Selection.addAnItem()" class="btn btn-danger">Add to &#128722;</a>
+        <a href="shop.html" class="btn btn-outline-secondary p-1">Keep Shopping</a>
+      </div>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Cras justo odio</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Vestibulum at eros</li>
-    </ul>
-    <div id="not-in-cart" class="card-body">
-      <a href="#" onclick="item_Selection.addAnItem()" class="btn btn-danger">Add to &#128722;</a>
-      <a href="shop.html" class="btn btn-outline-secondary p-1">Keep Shopping</a>
-    </div>
-    <div id="in-cart-btn" class="card-body" style="display:none;">
-      <a href="#" class="btn btn-dark" onclick="item_Selection.removeAnItem()">X Remove</a>
-      <a href="checkout.html" class="btn btn-outline-success" style="">Checkout</a>
-    </div>
-  </div>
 </article>
 <footer> Copyright &#169; 2020 Acro Minutiae <a href="privacypolicy.html">Privacy Policy</a></footer>
 <script>
