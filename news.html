@@ -7,37 +7,83 @@
 <meta name="author" content="Kevin Mezu">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>News | Upper Echelon</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="finalstyle.css">
 <link rel='icon' href="favicon.ico">
 </head>
 <body>
-  <h1><a href="homepage.html">UPPER ECHELON</a></h1>
-  <ul class = "nav">
-    <li><a href="Shop.html">Shop</a></li>
-    <li><a href="news.html">News</a></li>
-    <li><a href="archive.html">Archive</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="calender.html">Events</a></li>
-  </ul>
-<div class = "flexbox">
-  <div>
-<img src = "iphonese2.jpg" alt = "iPhone SE 2??" style="height:125px;width:200px">
-<h4> <a href = "https://www.apple.com/">2020 Apple </a> Plans to release budget class "Iphone SE 2" at fair price of 400 USD</h4>
-Possible images and informaiton about the new 2020 iphone SE leave the consumer with more to think about coming into
-the first quarter of the new year.
+  <div class="navmedium">
+<a href="#" class="openbtn" onclick="openNav()">UE co.</a>
+<div id="tablet">
+  <a class="active" href="shop.html">UPPER ECHELON</a>
+  <a href="news.html">News</a>
+  <a href="contact.html">Contact</a>
 </div>
-<div>
-<img src="AcroBliss.jpg" alt="2020 Plans" style="height:125px;width:200px">
-2020 Acro Minutiae Plans Collaboration with Microsoft?? Click for Updates!</div>
+<div class="navmedium right">
+  <a href="#search">Search</a>
+  <a href="#" id="cart_total" class="button" onclick="openCart()">&#128722;</a>
+</div>
+</div>
+<div id="mySidebar" class="sidebar">
+<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+<a href="shop.html">Back to Shop</a>
+<a href="about.html">About</a>
+<a href="news.html">News</a>
+<a href="contact.html">Contact</a>
+</div>
+<div id="mySideCart" class="sidecart">
+<a href="javascript:void(0)" class="closebtn" style="color:white;" onclick="closeCart()">×</a>
+<div class="card py-2">
+  <table id="myTable" class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Item</th>
+        <th scope="col">Size</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
+<div class="container text-black">
+  <div class="card-body">
+    Follow Our Social For More updates and Release information
+  </div>
 
+</div>
 
 
 
 
 <footer> <i>Copyright &#169; 2020 Acro Minutiae</i> <a href="privacypolicy.html">Privacy Policy</a> </footer>
+<script>
+function openNav() {
+document.getElementById("mySidebar").style.width = "250px";
+document.getElementById("main").style.marginLeft = "250px";
+}
 
+function closeNav() {
+document.getElementById("mySidebar").style.width = "0";
+document.getElementById("main").style.marginLeft= "0";
+}
+function openCart() {
+document.getElementById("mySideCart").style.width = "250px";
+document.getElementById("main_cart").style.marginRight = "250px";
+}
+function closeCart() {
+document.getElementById("mySideCart").style.width = "0";
+document.getElementById("main_cart").style.marginRight= "0";
+}
+</script>
 
 
 

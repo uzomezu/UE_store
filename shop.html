@@ -17,19 +17,20 @@
 </script>
   <div class="navmedium">
 <a href="#" class="openbtn" onclick="openNav()">UE co.</a>
-<a id="tablet" class="active" href="shop.html">UPPER ECHELON</a>
-<a id="tablet" href="#news">News</a>
-<a id="tablet" href="contact.html">Contact</a>
+<div id="tablet">
+  <a class="active" href="shop.html">UPPER ECHELON</a>
+  <a href="news.html">News</a>
+  <a href="contact.html">Contact</a>
+</div>
 <div class="navmedium right">
-  <a id="tablet" href="#search">Search</a>
+  <a href="#search">Search</a>
   <a href="#" id="cart_total" class="button" onclick="openCart()">&#128722;</a>
 </div>
 </div>
 <div id="mySidebar" class="sidebar">
 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
 <a href="about.html">About</a>
-<a href="#">Services</a>
-<a href="#">Clients</a>
+<a href="news.html">News</a>
 <a href="contact.html">Contact</a>
 </div>
 <div id="mySideCart" class="sidecart">
@@ -162,7 +163,7 @@
     document.body.className = '';
   });
 </script>
-<script type="text/javascript">
+<script>
 function openNav() {
 document.getElementById("mySidebar").style.width = "250px";
 document.getElementById("main").style.marginLeft = "250px";
