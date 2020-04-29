@@ -1,55 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="description" content="About Us">
-  <meta name="keywords" content="HTML,CSS,XML,JavaScript,Acro,Minutiae,Design,2020,Calisthenics,Skateteam,Acro,Minutiae,Gym,Rails,Hype,Fit,Fashion">
-  <meta name="author" content="Kevin Mezu">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About</title>
-<link rel='icon' href="favicon.ico">
+<meta charset="UTF-8">
+<meta name="description" content="Acro News">
+<meta name="keywords" content="HTML,CSS,XML,JavaScript,Acro,Minutiae,Design,2020,Calisthenics,Skateteam,Acro,Minutiae,Gym,Rails,Hype,Fit,Fashion">
+<meta name="author" content="Kevin Mezu">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News | Upper Echelon</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="finalstyle.css">
+<link rel='icon' href="favicon.ico">
 </head>
-<body class="hero-image">
-  <h1><a href="homepage.html">ACRO</a></h1>
-  <ul class = "nav">
-    <li><a href="Shop.html">Shop</a></li>
-    <li><a href="news.html">News</a></li>
-    <li><a href="archive.html">Archive</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="calender.html">Events</a></li>
-  </ul>
-<div class="flexbox">
-<p> Acro Minutiae strives to bring quality products for style concious users with an active lifestyle.
-Finding the right accesory, items, or gadgets can take your style to new levels or add the extra utility to your life.
-In our quest to do so, we hope to apply the subtle touch of class and simplicity that will aid in your life.
-In Acient Greece, the Acropolis or "high city" was the place where theatre, design, and values were established in a city-state.
-The most quality architecture, theatre, and wardrobes were on display in the Acropolis. Acro Minutiae attempts to unite those
-who contirubte to the journey of high quality on a daily basis. Find out about our events, projects, or shop in our store right here at Acro Minutiae!
-<br>
-<br>
-</p>
-<div class ="centered">
-  Want to Follow Us?
-<ol>
-  <li> Log on to your phone, tablet, computer, etc. </li>
-  <li> Open up Instagram </li>
-  <li> Follow: <a href="https://www.instagram.com/acro.world1/"><img style="width:40px;height:auto;" src="instagram-brands.svg" alt="insta"></a> </li>
-  <li> leave a like, comment, or direct message!!!</li>
-</ol>
-  What Kind of Content?
-<ul>
-  <li> Photos </li>
-  <li> Shows/Concerts </li>
-  <li> Edits/Short Clips </li>
-  <li> Information about Future meetups/events!!!</li>
-</ul>
+<body onload="items_At_Checkout.call()">
+  <div class="navmedium">
+<a href="#" class="openbtn" onclick="openNav()">UE co.</a>
+<div id="tablet">
+  <a class="active" href="shop.html">UPPER ECHELON</a>
+  <a href="news.html">News</a>
+  <a href="contact.html">Contact</a>
+</div>
+<div class="navmedium right">
+    <a href="#" class="button" onclick="openCart()">&#128722;<div id="cartShow" class="round badge"><span class="text-notification" id="cart_total" style="color:white;">1</span></div></a>
 </div>
 </div>
+<div id="mySidebar" class="sidebar">
+<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+<a href="shop.html">Back to Shop</a>
+<a href="about.html">About</a>
+<a href="news.html">News</a>
+<a href="contact.html">Contact</a>
+</div>
+<div id="mySideCart" class="sidecart">
+<a href="javascript:void(0)" class="closebtn" style="color:white;" onclick="closeCart()">×</a>
+<div class="card py-2">
+  <table id="myTable" class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Item</th>
+        <th scope="col">Size</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+</div>
+<a class="total" href="checkout.html">Checkout</a>
+</div>
+
+<div class="container text-black mt-5">
+  <div class="card-body">
+    Follow Our Social For More updates and Release information
+  </div>
+
+</div>
 
 
 
-<footer> Copyright &#169; 2020 Acro Minutiae <a href="privacypolicy.html">Privacy Policy</a> </footer>
+
+<footer> <i>Copyright &#169; 2020 Acro Minutiae</i> <a href="privacypolicy.html">Privacy Policy</a> </footer>
+<script>
+function items_At_Checkout() {
+  if (sessionStorage.length > 0) {
+  for (i=0; i < sessionStorage.length; i++) {
+    let x = sessionStorage.key(i);
+    let y = ' $'+ sessionStorage.getItem(x);
+    let z = "Size";
+    let q = "quantity";
+    console.log(x);
+    var table = document.getElementById("myTable");
+    var row = table.insertRow(-1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    cell1.innerHTML = " ";
+    cell2.innerHTML = x;
+    cell3.innerHTML = z;
+    cell4.innerHTML = y;
+
+    // var node     = document.createElement("LI");
+    // var textnode = document.createTextNode(z);
+    // node.appendChild(textnode);
+    // document.getElementById("myList").appendChild(node);
+    }
+    let numToPay = showMeCart();
+    let cartShow = document.getElementById('cartShow');
+    cartShow.style.display = "block";
+    let num = sessionStorage.length;
+    document.getElementById("cart_total").innerHTML = num;
+  } else {
+    let cartShow = document.getElementById('cartShow');
+    cartShow.style.display = "none";
+    }
+}
+function printCartItems(i) {
+    let str_Temp = sessionStorage.getItem(sessionStorage.key(i));
+    let check_Out_Total = parseInt(str_Temp,10);
+    console.log(check_Out_Total);
+    return check_Out_Total;
+
+}
+
+function showMeCart() {
+    total_Before_Tax = 0;
+    let temp_Num = 0
+    for (let i = 0; i < sessionStorage.length; i++) {
+        console.log(sessionStorage.key(i));
+        let temp_Num = printCartItems(i);
+        total_Before_Tax = total_Before_Tax + temp_Num;}
+
+    return  total_Before_Tax;
+    }
+function openNav() {
+document.getElementById("mySidebar").style.width = "250px";
+document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+document.getElementById("mySidebar").style.width = "0";
+document.getElementById("main").style.marginLeft= "0";
+}
+function openCart() {
+document.getElementById("mySideCart").style.width = "250px";
+document.getElementById("main_cart").style.marginRight = "250px";
+}
+function closeCart() {
+document.getElementById("mySideCart").style.width = "0";
+document.getElementById("main_cart").style.marginRight= "0";
+}
+</script>
+
 
 
 </body>

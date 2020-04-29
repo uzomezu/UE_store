@@ -22,9 +22,9 @@
   <a href="news.html">News</a>
   <a href="contact.html">Contact</a>
 </div>
+
 <div class="navmedium right">
-  <a href="#search">Search</a>
-  <a href="#" id="cart_total" class="button" onclick="openCart()">&#128722;</a>
+  <a href="#" class="button" onclick="openCart()">&#128722;<div id="cartShow" class="round badge"><span class="text-notification" id="cart_total" style="color:white;">1</span></div></a>
 </div>
 </div>
 <div id="mySidebar" class="sidebar">
@@ -46,19 +46,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+
     </tbody>
   </table>
 </div>
 <a class="total" href="checkout.html">Checkout</a>
 </div>
 <h1>Upper ECHELON</h1>
-  <div id="main">
+  <!-- <div id="main"> -->
 <div id="main_cart">
    <!-- <ul class = "nav">
     <li><a href="Shop.html">Shop</a></li>
@@ -155,7 +150,7 @@
   </main>
 
 </div>
-</div>
+<!-- </div> -->
 
 <footer> Copyright &#169; 2020 Acro Minutiae <a href="privacypolicy.html">Privacy Policy</a></footer>
 <script>
@@ -164,15 +159,15 @@
   });
 </script>
 <script>
-function openNav() {
-document.getElementById("mySidebar").style.width = "250px";
-document.getElementById("main").style.marginLeft = "250px";
-}
-
-function closeNav() {
-document.getElementById("mySidebar").style.width = "0";
-document.getElementById("main").style.marginLeft= "0";
-}
+// function openNav() {
+// document.getElementById("mySidebar").style.width = "250px";
+// document.getElementById("main").style.marginLeft = "250px";
+// }
+//
+// function closeNav() {
+// document.getElementById("mySidebar").style.width = "0";
+// document.getElementById("main").style.marginLeft= "0";
+// }
 function openCart() {
 document.getElementById("mySideCart").style.width = "250px";
 document.getElementById("main_cart").style.marginRight = "250px";
@@ -205,7 +200,15 @@ function items_At_Checkout() {
     // node.appendChild(textnode);
     // document.getElementById("myList").appendChild(node);
     }
-  }
+    let numToPay = showMeCart();
+    let cartShow = document.getElementById('cartShow');
+    cartShow.style.display = "block";
+    let num = sessionStorage.length;
+    document.getElementById("cart_total").innerHTML = num;
+  } else {
+    let cartShow = document.getElementById('cartShow');
+    cartShow.style.display = "none";
+    }
 }
 function printCartItems(i) {
     let str_Temp = sessionStorage.getItem(sessionStorage.key(i));
@@ -225,9 +228,6 @@ function showMeCart() {
 
     return  total_Before_Tax;
     }
-let numToPay = showMeCart();
-let num = " $" + numToPay.toString() + '-' + '&#128722;';
-document.getElementById("cart_total").innerHTML = num;
 </script>
 </body>
 </html>
