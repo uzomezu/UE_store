@@ -19,7 +19,7 @@
         <h5 class="card-title">Checkout</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
-      <table id="myTable" class="table">
+      <table class="table">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -28,13 +28,13 @@
             <th scope="col">Price</th>
           </tr>
         </thead>
+      </table>
+      <table id="myTable" class="table">
+        <thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
+            <tr>
+
+            </tr
         </tbody>
       </table>
       <div class="card-body d-flex flex-row-reverse">
@@ -70,16 +70,15 @@
           let z = "Size";
           let q = "quantity";
           console.log(x);
-          var table = document.getElementById("myTable");
-          var row = table.insertRow(-1);
-          var cell1 = row.insertCell(0);
-          var cell2 = row.insertCell(1);
-          var cell3 = row.insertCell(2);
-          var cell4 = row.insertCell(3);
+          var table   = document.getElementById("myTable");
+          var row     = table.insertRow(-1);
+          var cell1   = row.insertCell(0);
+          var cell2   = row.insertCell(1);
+          var cell3   = row.insertCell(2);
+          var cell4   = row.insertCell(3);
 
-          cell1.innerHTML = "<button class='btn btn-dark' type='button' name='button' onclick=''>X</button>" ;
+          cell1.innerHTML = "<button type='button' name='button' onclick='removeFromTable(" + i + ")'>X</button>";
           cell2.innerHTML = x;
-
           cell3.innerHTML = z;
           cell4.innerHTML = y;
 
@@ -112,19 +111,20 @@
               total_Before_Tax = total_Before_Tax + temp_Num;}
           return  total_Before_Tax;
           }
-          function removeFromTable(itemName) {
-            var table, tr, td, i, txtValue;
-            table = document.getElementById("myTable");
-            tr    = table.getElementsByTagName("tr");
-            for (i = 1; i < tr.length; i++) {
-              td = tr[i].getElementsByTagName("td")[1];
-              if (td === itemName) {
-   		            sessionStorage.removeItem(itemName);
-   		            document.getElementById("myTable").deleteRow(i);
-                  i = 1000;
-              }
+  // Remove a item from the table and reprint cart total---//
+      function removeFromTable(num) {
+          table    = document.getElementById('myTable');
+          sessionStorage.removeItem(sessionStorage.key(num));
+          for(var i = table.rows.length - 1; i > 0; i--){
+            console.log(i);
+            console.log(num);
+            table.deleteRow(i);
             }
-          }
+
+          items_At_Checkout.call();
+      }
+  // --------------------------------------------------------//
+
   </script>
   </body>
 </html>

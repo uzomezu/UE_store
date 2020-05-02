@@ -36,7 +36,7 @@
 <div id="mySideCart" class="sidecart">
 <a href="javascript:void(0)" class="closebtn" style="color:white;" onclick="closeCart()">×</a>
 <div class="card py-2">
-  <table id="myTable" class="table">
+  <table class="table">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -45,8 +45,11 @@
         <th scope="col">Price</th>
       </tr>
     </thead>
+  </table>
+  <table id="myTable" class="table">
     <tbody>
-
+      <tr>
+      </tr>
     </tbody>
   </table>
 </div>
@@ -190,7 +193,7 @@ function items_At_Checkout() {
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
-    cell1.innerHTML = " ";
+    cell1.innerHTML = "<button type='button' class='badge badge-dark' name='button' onclick='removeFromTable(" + i + ")'>X</button>";
     cell2.innerHTML = x;
     cell3.innerHTML = z;
     cell4.innerHTML = y;
@@ -228,6 +231,19 @@ function showMeCart() {
 
     return  total_Before_Tax;
     }
+    // Remove a item from the table and reprint cart total---//
+        function removeFromTable(num) {
+            table    = document.getElementById('myTable');
+            sessionStorage.removeItem(sessionStorage.key(num));
+            for(var i = table.rows.length - 1; i > 0; i--){
+              console.log(i);
+              console.log(num);
+              table.deleteRow(i);
+              }
+
+            items_At_Checkout.call();
+        }
+    // --------------------------------------------------------//
 </script>
 </body>
 </html>
