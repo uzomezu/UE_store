@@ -12,6 +12,8 @@
     <link rel="stylesheet" type="text/css" href="finalstyle.css">
   </head>
   <body onload="items_At_Checkout.call()">
+    <script src="https://www.paypal.com/sdk/js?client-id=AVBkTqv3l8lZKUu7fchUpY2RJQjjdYVH9JLS6eH8d7djamwIt_YaVvtLixqUL-dohCeRub_4Vgvp9I5i"> // Required. Replace SB_CLIENT_ID with your sandbox client ID.
+    </script>
     <article id="product-card" class="d-flex justify-content-center align-items-stretch text-monospace">
     <div id="mobile-card" class="card align-self-center">
       <div id="cartDiv" style=""></div>
@@ -42,18 +44,10 @@
 
       </div>
       <div class="card-body d-flex flex-row-reverse">
-        <form id="myForm" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-            <input type="hidden" name="cmd" value="_cart">
-            <input type="hidden" name="upload" value="1">
-            <input type="hidden" name="business" value="upperechelonthebrand@gmail.com">
-            <input type="hidden" name="currency_code" value="USD">
-
-            <input type="hidden" name="item_name_1" value="T-shirt">
-            <input type="hidden" name="amount_1" id="final_Value" value="">
-
-            <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-        </form>
         <a class="btn btn-secondary py-0 mx-4" href="shop.html">keep shopping</a>
+      </div>
+      <div class="card-body d-flex">
+    <div id="paypal-button-container"></div>
       </div>
     </div>
   </article>
@@ -91,7 +85,7 @@
         let numToPay = showMeCart();
         let num = " $" + numToPay.toString();
         document.getElementById("cart_total").innerHTML = num;
-        myForm.elements["final_Value"].value = numToPay;
+
 
       }
       function printCartItems(i) {
@@ -99,7 +93,6 @@
           let check_Out_Total = parseInt(str_Temp,10);
           console.log(check_Out_Total);
           return check_Out_Total;
-
       }
 
       function showMeCart() {
@@ -109,7 +102,8 @@
               console.log(sessionStorage.key(i));
               let temp_Num = printCartItems(i);
               total_Before_Tax = total_Before_Tax + temp_Num;}
-          return  total_Before_Tax;
+          str_Total = total_Before_Tax.toString();
+          return  str_Total;
           }
   // Remove a item from the table and reprint cart total---//
       function removeFromTable(num) {
@@ -126,5 +120,34 @@
   // --------------------------------------------------------//
 
   </script>
+
+  <script src="https://www.paypal.com/sdk/js?client-id=AVBkTqv3l8lZKUu7fchUpY2RJQjjdYVH9JLS6eH8d7djamwIt_YaVvtLixqUL-dohCeRub_4Vgvp9I5i" data-sdk-integration-source="button-factory"></script>
+  <script>
+    paypal.Buttons({
+        style: {
+            shape: 'rect',
+            color: 'gold',
+            layout: 'vertical',
+            label: 'paypal',
+
+        },
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: showMeCart()
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                alert('Transaction completed by ' + details.payer.name.given_name + '!');
+            });
+        }
+    }).render('#paypal-button-container');
+  </script
+
+
   </body>
 </html>
