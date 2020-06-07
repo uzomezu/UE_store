@@ -14,6 +14,15 @@
   font-family: 'Doppio';
   src: url('DoppioOne-Regular.ttf');
 }
+.scene,
+canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.main-style {
+  background: radial-gradient(circle at center, rgba(255, 0, 0, 0.6) 0, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0.1) 70%);
+}
 .round {
   background-color: red;
   display: inline-block;
@@ -376,6 +385,11 @@ h6 {
     height: 200px;
     background-color: pink;
   }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
   background-color: linear-gradient(#C0C0C0, white);

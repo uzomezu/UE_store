@@ -15,6 +15,7 @@
   <script>
   document.body.className = 'fade';
 </script>
+
   <div class="navmedium">
 <a href="#" class="openbtn" onclick="openNav()">UE co.</a>
 <a id="tablet" class="active" href="shop.html">UPPER ECHELON</a>
@@ -56,6 +57,7 @@
 </div>
 <a class="total" href="checkout.html">Checkout</a>
 </div>
+<div class="scene"></div>
 <h1>Upper ECHELON</h1>
   <div id="main">
 <div id="main_cart">
@@ -105,7 +107,7 @@
     </div>
 
   </div> -->
-  <main>
+  <main class="main-style">
     <ul id="cd-gallery-items" class="cd-container">
       <li>
         <a href="snakeglaretee.html">
@@ -162,6 +164,9 @@
     document.body.className = '';
   });
 </script>
+<script src="./3D/three.js-master/build/three.min.js"></script>
+<script src="./3D/three.js-master/examples/js/loaders/GLTFLoader.js"></script>
+<script src="app.js"></script>
 <script type="text/javascript">
 function openNav() {
 document.getElementById("mySidebar").style.width = "250px";
