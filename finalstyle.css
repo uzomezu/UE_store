@@ -20,9 +20,32 @@ canvas {
   width: 100%;
   height: 100%;
 }
-.main-style {
-  background: radial-gradient(circle at center, rgba(255, 0, 0, 0.6) 0, rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0) 70%);
-  overflow: hidden;
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+/* Corner */
+::-webkit-scrollbar-corner {
+  display: none;
+}
+/* Scroll Peice */
+::-webkit-scrollbar-track-piece {
+  width: 80%;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(rgba(255, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.5) 75%);
+  height: 1rem;
+  border-radius: 15px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(red 0, rgba(0, 0, 0, 0.8) 75%);
+  transition: all 1s;
 }
 .round {
   background-color: red;
@@ -93,9 +116,9 @@ h1 {
   position: sticky;
   color: #ff021b;
   top: 0;
+  font-size: large;
   width: 100%;
-  margin: 20px 0;
-  padding: 10px;
+  padding: 15px 0 0 0;
   text-align: center;
 }
 h1 a {
@@ -158,19 +181,27 @@ h6 {
   background-size: cover;
   position: relative;
 }
+.header-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
 .navmedium {
   overflow: hidden;
   font-size: 15px;
+  z-index: 15;
   filter: brightness(150%);
   filter: contrast(100%);
 }
 .navmedium a {
   float: left;
-  color: black;
+  color: whitesmoke;
   text-align: center;
   padding: 21px 18px;
   text-decoration: none;
-  font-size: 12px;
+  font-size: large;
 }
 .navmedium a:hover {
   background-color: black;
@@ -259,6 +290,7 @@ h6 {
 }
 .sidecart a:active {
   text-decoration: none;
+  background-color: none;
 }
 .sidecart a:hover {
   color: #ff021b;
@@ -307,7 +339,7 @@ h6 {
   }
   .navmedium.right a.button {
     overflow: hidden;
-    background-color: white;
+    background-color: none;
     color: white;
     text-align: center;
     padding: 16px 18px;
@@ -392,9 +424,17 @@ h6 {
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  padding: 0;
+  margin: 0;
+}
 body {
-  background: linear-gradient(#C0C0C0 0, black 45%);
+  background: white;
   opacity: 1;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+  height: 100%;
   transition: 2.5s opacity;
   color: black;
   text-decoration: none;
@@ -407,14 +447,22 @@ body.fade {
 footer {
   font-family: 'Doppio';
   font-size: 0.7rem;
-  padding-top: 25px;
+  position: absolute;
   left: 0;
   bottom: 0;
-  z-index: 1;
+  z-index: 100;
+  height: 5vh;
   width: 100%;
   background-color: none;
-  color: black;
+  background: -webkit-linear-gradient(#0e0e 0, #333 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-align: center;
+}
+footer a {
+  background: -webkit-linear-gradient(#333 0, #bbb 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 ul.nav {
   font-family: 'Beware';
@@ -571,8 +619,12 @@ input[type=submit]:hover {
 .cd-container {
   /* this class is used to horizontally align the gallery of items */
   position: relative;
-  width: 90%;
-  max-width: 1200px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  width: 100%;
+  max-width: 768px;
+  height: 70vh;
+  overflow: scroll;
   margin: auto;
 }
 .cd-container::after {
@@ -583,19 +635,7 @@ input[type=submit]:hover {
 }
 main {
   position: relative;
-  min-height: 100%;
-  padding-top: 70px;
   z-index: 1;
-}
-@media only screen and (min-width: 768px) {
-  main {
-    padding-top: 90px;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  main {
-    padding-top: 120px;
-  }
 }
 .row {
   display: -ms-flexbox;
