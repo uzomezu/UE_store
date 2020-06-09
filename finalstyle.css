@@ -619,7 +619,10 @@ input[type=submit]:hover {
 .cd-container {
   /* this class is used to horizontally align the gallery of items */
   position: relative;
-  background: rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow: inset 0 0 10px #000000;
+  background: rgba(255, 255, 255, 0.2);
   padding: 15px;
   width: 100%;
   max-width: 768px;
