@@ -21,7 +21,8 @@ canvas {
   height: 100%;
 }
 .main-style {
-  background: radial-gradient(circle at center, rgba(255, 0, 0, 0.6) 0, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0.1) 70%);
+  background: radial-gradient(circle at center, rgba(255, 0, 0, 0.6) 0, rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0) 70%);
+  overflow: hidden;
 }
 .round {
   background-color: red;
@@ -392,7 +393,7 @@ h6 {
   box-sizing: border-box;
 }
 body {
-  background-color: linear-gradient(#C0C0C0, white);
+  background: linear-gradient(#C0C0C0 0, black 45%);
   opacity: 1;
   transition: 2.5s opacity;
   color: black;
