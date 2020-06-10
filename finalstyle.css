@@ -262,6 +262,7 @@ h6 {
 .openbtn {
   float: left;
   border: none;
+  font-size: large;
   font-family: 'Aesthetic Demo';
 }
 .openbtn:hover {
@@ -327,7 +328,7 @@ h6 {
   transition: margin-right 0.5s;
   padding: 16px;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   .openbtn {
     display: none;
   }
