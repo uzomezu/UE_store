@@ -191,7 +191,7 @@ h6 {
 .navmedium {
   overflow: hidden;
   font-size: 15px;
-  z-index: 15;
+  z-index: 1;
   filter: brightness(150%);
   filter: contrast(100%);
 }
@@ -229,7 +229,7 @@ h6 {
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 100;
   top: 0;
   left: 0;
   background-color: #111;
@@ -271,7 +271,7 @@ h6 {
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 2;
+  z-index: 100;
   top: 0;
   right: 0;
   background-color: black;
@@ -348,7 +348,7 @@ h6 {
     display: inline-block;
   }
   .navmedium.right a.button:hover {
-    background: #28a745;
+    background: #006600;
     color: white;
   }
 }
@@ -454,13 +454,13 @@ footer {
   height: 5vh;
   width: 100%;
   background-color: none;
-  background: -webkit-linear-gradient(#0e0e 0, #333 50%);
+  background: -webkit-linear-gradient(#006600 0, #33ff00 50%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
 }
 footer a {
-  background: -webkit-linear-gradient(#333 0, #bbb 90%);
+  background: -webkit-linear-gradient(#33ccff 0, blue 90%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -619,15 +619,16 @@ input[type=submit]:hover {
 .cd-container {
   /* this class is used to horizontally align the gallery of items */
   position: relative;
-  -moz-box-shadow: inset 0 0 10px #000000;
-  -webkit-box-shadow: inset 0 0 10px #000000;
-  box-shadow: inset 0 0 10px #000000;
+  -moz-box-shadow: inset 0px 5px 10px 2.5px rgba(0, 0, 0, 0.85);
+  -webkit-box-shadow: inset 0px 5px 10px 2.5px rgba(0, 0, 0, 0.85);
+  box-shadow: inset 0px 5px 10px 2.5px rgba(0, 0, 0, 0.85);
   background: rgba(255, 255, 255, 0.2);
+  overflow-x: hidden;
   padding: 15px;
   width: 100%;
   max-width: 768px;
   height: 70vh;
-  overflow: scroll;
+  overflow-y: scroll;
   margin: auto;
 }
 .cd-container::after {
