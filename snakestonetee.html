@@ -12,16 +12,16 @@
 <link rel="stylesheet" type="text/css" href="finalstyle.css">
 </head>
 <body onload="checkMyBag.call()">
-  <h3 id="pc-laptop-img" class="text-center p-4"><a href="shop.html">UPPER ECHELON</a></h3>
+  <h3 id="pc-laptop-img" class="text-center p-4"><a href="index">UPPER ECHELON</a></h3>
   <article id="product-card" class="d-flex justify-content-center align-items-stretch text-monospace">
     <div id="cartDiv" class="ui-cart align-self-center" style="display:none">
-      <a id="mobile-img" class="navmedium" href="shop.html">Upper ECHELON</a>
+      <a id="mobile-img" class="navmedium" href="index">Upper ECHELON</a>
       <a id="pc-laptop-img" class="first-child" href="#"> Item in Cart </a>
       <a href="#">Subtotal<span id="cart_total"></span></a>
-      <a id="pc-laptop-img" class="btn btn-success btn-block" href="checkout.html">Checkout</a>
+      <a id="pc-laptop-img" class="btn btn-success btn-block" href="checkout">Checkout</a>
       <div id="mobile-img" class="navmedium right" style="background-color:none;">
         <a id="num_items" href="#"></a>
-        <a class="last-child" href="checkout.html">Checkout</a>
+        <a class="last-child" href="checkout">Checkout</a>
       </div>
     </div>
     <figure class="figure" id="pc-laptop-img">
@@ -42,12 +42,12 @@
           <li class="list-group-item"><a class="btn btn-outline-warning" href="#">item in cart</a></li>
           <li class="list-group-item">
             <a href="#" class="btn btn-dark" onclick="item_Selection.removeAnItem()">X Remove</a>
-            <a href="shop.html" class="btn btn-outline-success" style="">Keep Shopping</a>
+            <a href="index" class="btn btn-outline-success" style="">Keep Shopping</a>
           </li>
           </ul>
       <div id="not-in-cart" class="card-body">
         <a href="#" onclick="item_Selection.addAnItem()" class="btn btn-danger">Add to &#128722;</a>
-        <a href="shop.html" class="btn btn-outline-secondary p-1">Keep Shopping</a>
+        <a href="index" class="btn btn-outline-secondary p-1">Keep Shopping</a>
       </div>
     </div>
 </article>
