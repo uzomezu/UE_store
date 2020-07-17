@@ -1,18 +1,18 @@
 @font-face {
-  font-family: 'Aesthetic Demo';
-  src: url('AestheticDemo-w4A2.otf');
+  font-family: "Aesthetic Demo";
+  src: url("AestheticDemo-w4A2.otf");
 }
 @font-face {
-  font-family: 'BowlbyOne';
-  src: url('BowlbyOneSC-Regular.ttf');
+  font-family: "BowlbyOne";
+  src: url("BowlbyOneSC-Regular.ttf");
 }
 @font-face {
-  font-family: 'Beware';
-  src: url('Beware.ttf');
+  font-family: "Beware";
+  src: url("Beware.ttf");
 }
 @font-face {
-  font-family: 'Doppio';
-  src: url('DoppioOne-Regular.ttf');
+  font-family: "Doppio";
+  src: url("DoppioOne-Regular.ttf");
 }
 .scene,
 canvas {
@@ -111,7 +111,7 @@ video {
   padding: 20px;
 }
 h1 {
-  font-family: 'Aesthetic Demo';
+  font-family: "Aesthetic Demo";
   position: -webkit-sticky;
   position: sticky;
   color: #ff021b;
@@ -131,7 +131,7 @@ h1 a:hover {
   color: white;
 }
 h2 {
-  font-family: 'Beware';
+  font-family: "Beware";
   font-size: 40px;
   text-decoration: none;
   display: inline-block;
@@ -168,7 +168,8 @@ h6 {
   text-align: center;
 }
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url("windowsfield.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)),
+    url("windowsfield.jpg");
   min-height: 100%;
   min-width: 100%;
   width: 100%;
@@ -197,7 +198,7 @@ h6 {
 }
 .navmedium a {
   float: left;
-  color: whitesmoke;
+  color: black;
   text-align: center;
   padding: 21px 18px;
   text-decoration: none;
@@ -210,7 +211,7 @@ h6 {
   transform: scale3d(1.1, 1.1, 1.1);
 }
 .navmedium a.active {
-  font-family: 'Aesthetic Demo';
+  font-family: "Aesthetic Demo";
 }
 .navmedium.right {
   color: black;
@@ -238,7 +239,7 @@ h6 {
   padding-top: 60px;
 }
 .sidebar a {
-  font-family: 'Beware';
+  font-family: "Beware";
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
@@ -263,7 +264,7 @@ h6 {
   float: left;
   border: none;
   font-size: large;
-  font-family: 'Aesthetic Demo';
+  font-family: "Aesthetic Demo";
 }
 .openbtn:hover {
   background-color: white;
@@ -297,7 +298,7 @@ h6 {
   color: #ff021b;
 }
 .sidecart a.total {
-  font-family: 'Doppio';
+  font-family: "Doppio";
   background-color: #28a745;
   color: black;
 }
@@ -446,14 +447,15 @@ body.fade {
   transition: none;
 }
 footer {
-  font-family: 'Doppio';
+  font-family: "Doppio";
   font-size: 0.7rem;
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
   z-index: 100;
-  height: 5vh;
+  height: 25px;
   width: 100%;
+  opacity: 0.6;
   background-color: none;
   background: -webkit-linear-gradient(#006600 0, #33ff00 50%);
   -webkit-background-clip: text;
@@ -466,7 +468,7 @@ footer a {
   -webkit-text-fill-color: transparent;
 }
 ul.nav {
-  font-family: 'Beware';
+  font-family: "Beware";
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -486,7 +488,7 @@ ul.nav li a {
 ul.nav li a:hover {
   background-color: #111;
 }
-input[type=text],
+input[type="text"],
 select,
 textarea {
   width: 100%;
@@ -499,8 +501,8 @@ label {
   padding: 5px 5px 5px 0;
   display: inline-block;
 }
-input[type=submit] {
-  background-color: #4CAF50;
+input[type="submit"] {
+  background-color: #4caf50;
   color: white;
   padding: 5px 10px;
   border: none;
@@ -508,7 +510,7 @@ input[type=submit] {
   cursor: pointer;
   float: right;
 }
-input[type=submit]:hover {
+input[type="submit"]:hover {
   background-color: #45a049;
 }
 .container {
@@ -634,7 +636,7 @@ input[type=submit]:hover {
 }
 .cd-container::after {
   /* clearfix */
-  content: '';
+  content: "";
   display: table;
   clear: both;
 }
@@ -677,7 +679,7 @@ main {
   border: 1px solid lightgrey;
   border-radius: 3px;
 }
-input[type=text] {
+input[type="text"] {
   width: 100%;
   margin-bottom: 10px;
   padding: 5px;
@@ -698,7 +700,7 @@ span.price {
   color: #f2f2f2;
 }
 .btn-checkout {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 12px;
   margin: 10px 0;
